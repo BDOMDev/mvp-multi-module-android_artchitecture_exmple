@@ -1,0 +1,56 @@
+query GitHubProfile($login: String!) {
+user(login: $login) {
+email
+login
+name
+bio
+avatarUrl
+followers {
+totalCount
+}
+following {
+totalCount
+}
+pinnedItems(first: 3) {
+nodes {
+...repositoryFragment
+}
+}
+topRepositories(orderBy: {field: CREATED_AT, direction: ASC}, first: 5) {
+nodes {
+...repositoryFragment
+}
+}
+starredRepositories(first: 5, orderBy: {field: STARRED_AT, direction: ASC
+}) {
+nodes {
+...repositoryFragment
+}
+}
+}
+}
+
+fragment repositoryFragment on Repository {
+id
+description
+name
+owner {
+...repoOwnerFragment
+}
+languages(first: 1) {
+nodes {
+...languageFragment
+}
+}
+stargazerCount
+}
+
+fragment repoOwnerFragment on RepositoryOwner {
+login
+avatarUrl
+}
+
+fragment languageFragment on Language {
+color
+name
+}

@@ -1,0 +1,7 @@
+<resources>
+    <string name="profile">Profile</string>
+    <string name="followers">followers</string>
+    <string name="following">following</string>
+    <string name="pinned">Pinned</string>
+    <string name="view_all">View All</string>
+</resources>
